@@ -4,5 +4,7 @@
     <string name="app_name">SMS Now</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="imageview_refresh">Refresh content</string>
+    <string name="edittext_location">Enter location update…</string>
 
 </resources>

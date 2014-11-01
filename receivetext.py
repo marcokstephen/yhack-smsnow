@@ -11,6 +11,9 @@ from setalarm import SetAlarm
 from getShowInfo import GetShowInfo
 from setreminder import SetReminder
 from helpme import GetHelp
+from gettranslate import GetTranslate
+from getdirection import GetDirection
+from findnearby import FindNearby
 import json
 
 weatherReport = GetWeather()
@@ -19,6 +22,9 @@ setAlarm = SetAlarm()
 setReminder = SetReminder()
 showInfo = GetShowInfo()
 helpMenu = GetHelp()
+translateText = GetTranslate()
+getDirection = GetDirection()
+findNearby = FindNearby()
 class ReceiveText(webapp2.RequestHandler):
    def post(self):
       fromNumber = cgi.escape(self.request.get('From'))
@@ -50,8 +56,12 @@ class ReceiveText(webapp2.RequestHandler):
          json_result = setReminder.setreminder(fromNumber,json_object_result)
       elif method_name == "help_me":
          json_result = helpMenu.gethelp()
-#      else:
-#         #do nothing
+      elif method_name == "get_translate":
+         json_result = translateText.gettranslate(json_object_result)
+      elif method_name == "get_directions":
+         json_result = getDirection.getdirection(json_object_result)
+      elif method_name == "find_nearby":
+         json_result = findNearby.findnearby(json_object_result)
    
       r = twiml.Response()
       r.message(json_result)
