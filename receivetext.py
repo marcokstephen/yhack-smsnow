@@ -64,6 +64,6 @@ class ReceiveText(webapp2.RequestHandler):
          json_result = findNearby.findnearby(json_object_result)
    
       r = twiml.Response()
-      r.message(json_result)
+      r.message(str(json_result))
       self.response.headers['Content-Type'] = 'text/xml'
       self.response.write(str(r))
