@@ -12,6 +12,7 @@ from getShowInfo import GetShowInfo
 from setreminder import SetReminder
 from helpme import GetHelp
 from gettranslate import GetTranslate
+from getdirection import GetDirection
 import json
 
 weatherReport = GetWeather()
@@ -21,6 +22,7 @@ setReminder = SetReminder()
 showInfo = GetShowInfo()
 helpMenu = GetHelp()
 translateText = GetTranslate()
+getDirection = GetDirection()
 class ReceiveText(webapp2.RequestHandler):
    def post(self):
       fromNumber = cgi.escape(self.request.get('From'))
@@ -52,6 +54,8 @@ class ReceiveText(webapp2.RequestHandler):
          json_result = helpMenu.gethelp()
       elif method_name == "get_translate":
          json_result = translateText.gettranslate(json_object_result)
+      elif method_name == "get_direction":
+         json_result = getDirection.getdirection(json_object_result)
 #      else:
 #         #do nothing
 
