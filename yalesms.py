@@ -16,7 +16,7 @@
 #
 import webapp2
 from index import *
-from receive-text import *
+from receivetext import *
 
 app = webapp2.WSGIApplication([
     ('/', IndexPage),
