@@ -8,4 +8,5 @@ weather forecast (toronto)
 set alarm (8am tomorrow)
 remind me (pay the phone bill)
 translate "(phrase)" (korean)
-directions from (yale university) to (harvard university)"""
+directions from (yale university) to (harvard university)
+attractions near (Kingston Rd & Westney Rd)"""
