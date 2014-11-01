@@ -26,6 +26,8 @@ class ReceiveText(webapp2.RequestHandler):
       if method_name == "get_weather":
          #get the weather
          json_result = weatherReport.getweather(json_object_result)
+      elif method_name == "get_weather_forecast":
+         json_result = weatherReport.getforecast(json_object_result)
 #      else:
 #         #do nothing
 
