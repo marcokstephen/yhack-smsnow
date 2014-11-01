@@ -6,9 +6,11 @@ from twilio import twiml
 import sys
 sys.path.append('functions')
 from getweather import GetWeather
+from getstocks import GetStock
 import json
 
 weatherReport = GetWeather()
+stockReport = GetStock()
 class ReceiveText(webapp2.RequestHandler):
    def post(self):
       fromNumber = cgi.escape(self.request.get('From'))
@@ -28,6 +30,8 @@ class ReceiveText(webapp2.RequestHandler):
          json_result = weatherReport.getweather(json_object_result)
       elif method_name == "get_weather_forecast":
          json_result = weatherReport.getforecast(json_object_result)
+      elif method_name == "get_stocks":
+         json_result = stockReport.getstock(json_object_result)
 #      else:
 #         #do nothing
 
