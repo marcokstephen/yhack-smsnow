@@ -9,6 +9,10 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /alarmcall
+  static_files: alarmcall.xml
+  upload: alarmcall\.xml
+
 - url: .*
   script: yalesms.app
 

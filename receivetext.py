@@ -35,7 +35,7 @@ class ReceiveText(webapp2.RequestHandler):
       elif method_name == "get_stocks":
          json_result = stockReport.getstock(json_object_result)
       elif method_name == "set_alarm":
-         json_result = setAlarm.setalarm(json_object_result)
+         json_result = setAlarm.setalarm(fromNumber,json_object_result)
 #      else:
 #         #do nothing
 
