@@ -15,11 +15,10 @@
 # limitations under the License.
 #
 import webapp2
-
-class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('Hello world!')
+from index import *
+from receive-text import *
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', IndexPage),
+    ('/receivetext', ReceiveText)
 ], debug=True)
