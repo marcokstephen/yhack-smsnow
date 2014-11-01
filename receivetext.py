@@ -9,11 +9,13 @@ from getweather import GetWeather
 from getstocks import GetStock
 from setalarm import SetAlarm
 from getShowInfo import GetShowInfo
+from setreminder import SetReminder
 import json
 
 weatherReport = GetWeather()
 stockReport = GetStock()
 setAlarm = SetAlarm()
+setReminder = SetReminder()
 showInfo = GetShowInfo()
 class ReceiveText(webapp2.RequestHandler):
    def post(self):
@@ -40,6 +42,8 @@ class ReceiveText(webapp2.RequestHandler):
          json_result = setAlarm.setalarm(fromNumber,json_object_result)
       elif method_name == "get_shows":
          json_result = showInfo.getShowsToday(json_object_result)
+      elif method_name == "set_reminder":
+         json_result = setReminder.setreminder(fromNumber,json_object_result)
 #      else:
 #         #do nothing
 
