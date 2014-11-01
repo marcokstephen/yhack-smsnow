@@ -20,9 +20,11 @@ from receivetext import *
 import os
 sys.path.append('functions')
 from setalarm import *
+from setreminder import *
 
 app = webapp2.WSGIApplication([
     ('/', IndexPage),
     ('/receivetext', ReceiveText),
-    ('/runalarm',RunAlarm)
+    ('/runalarm',RunAlarm),
+    ('/runreminder',RunReminder)
 ], debug=True)

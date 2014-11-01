@@ -16,8 +16,8 @@ class SetReminder():
 
 class RunReminder(webapp2.RequestHandler):
    def post(self):
-      number = cgi.escape(self.request.get('number')
-      reminder = cgi.escape(self.request.get('reminder')
+      number = cgi.escape(self.request.get('number'))
+      reminder = cgi.escape(self.request.get('reminder'))
       account_sid = "ACcdd722da9eb23c0be222908001c05621"
       auth_token = "f42dc3d4155e275b7e6534a08d1c12fc"
       client = TwilioRestClient(account_sid, auth_token)
