@@ -8,6 +8,7 @@ sys.path.append('functions')
 from getweather import GetWeather
 import json
 
+weatherReport = GetWeather()
 class ReceiveText(webapp2.RequestHandler):
    def post(self):
       fromNumber = cgi.escape(self.request.get('From'))
@@ -20,11 +21,16 @@ class ReceiveText(webapp2.RequestHandler):
       json_result = result.read()
       
       json_object_result = json.loads(json_result)
+      method_name = json_object_result['outcomes'][0]['intent']
       
+      if method_name == "get_weather":
+         #get the weather
+         json_result = weatherReport.getweather(json_object_result)
+#      else:
+#         #do nothing
 
-#      json_result = json_object_result['outcomes']
-      self.response.write(json_object_result['outcomes'][0]['intent'])
-#      r = twiml.Response()
-#      r.message(json_result)
-#      self.response.headers['Content-Type'] = 'text/xml'
-#      self.response.write(str(r))
+
+      r = twiml.Response()
+      r.message(json_result)
+      self.response.headers['Content-Type'] = 'text/xml'
+      self.response.write(str(r))
