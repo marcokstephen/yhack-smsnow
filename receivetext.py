@@ -11,6 +11,7 @@ from setalarm import SetAlarm
 from getShowInfo import GetShowInfo
 from setreminder import SetReminder
 from helpme import GetHelp
+from gettranslate import GetTranslate
 import json
 
 weatherReport = GetWeather()
@@ -19,6 +20,7 @@ setAlarm = SetAlarm()
 setReminder = SetReminder()
 showInfo = GetShowInfo()
 helpMenu = GetHelp()
+translateText = GetTranslate()
 class ReceiveText(webapp2.RequestHandler):
    def post(self):
       fromNumber = cgi.escape(self.request.get('From'))
@@ -48,6 +50,8 @@ class ReceiveText(webapp2.RequestHandler):
          json_result = setReminder.setreminder(fromNumber,json_object_result)
       elif method_name == "help_me":
          json_result = helpMenu.gethelp()
+      elif method_name == "get_translate":
+         json_result = translateText.gettranslate(json_object_result)
 #      else:
 #         #do nothing
 

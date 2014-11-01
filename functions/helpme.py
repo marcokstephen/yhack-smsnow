@@ -6,4 +6,5 @@ stock price (GOOG)
 weather (san francisco)
 weather forecast (toronto)
 set alarm (8am tomorrow)
-remind me (pay the phone bill)"""
+remind me (pay the phone bill)
+translate "(phrase)" (korean)"""
