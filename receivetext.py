@@ -10,6 +10,7 @@ from getstocks import GetStock
 from setalarm import SetAlarm
 from getShowInfo import GetShowInfo
 from setreminder import SetReminder
+from helpme import GetHelp
 import json
 
 weatherReport = GetWeather()
@@ -17,6 +18,7 @@ stockReport = GetStock()
 setAlarm = SetAlarm()
 setReminder = SetReminder()
 showInfo = GetShowInfo()
+helpMenu = GetHelp()
 class ReceiveText(webapp2.RequestHandler):
    def post(self):
       fromNumber = cgi.escape(self.request.get('From'))
@@ -44,6 +46,8 @@ class ReceiveText(webapp2.RequestHandler):
          json_result = showInfo.getShowsToday(json_object_result)
       elif method_name == "set_reminder":
          json_result = setReminder.setreminder(fromNumber,json_object_result)
+      elif method_name == "help_me":
+         json_result = helpMenu.gethelp()
 #      else:
 #         #do nothing
 
