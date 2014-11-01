@@ -54,7 +54,7 @@ class ReceiveText(webapp2.RequestHandler):
          json_result = helpMenu.gethelp()
       elif method_name == "get_translate":
          json_result = translateText.gettranslate(json_object_result)
-      elif method_name == "get_direction":
+      elif method_name == "get_directions":
          json_result = getDirection.getdirection(json_object_result)
 #      else:
 #         #do nothing
