@@ -7,4 +7,5 @@ weather (san francisco)
 weather forecast (toronto)
 set alarm (8am tomorrow)
 remind me (pay the phone bill)
-translate "(phrase)" (korean)"""
+translate "(phrase)" (korean)
+directions from (yale university) to (harvard university)"""
