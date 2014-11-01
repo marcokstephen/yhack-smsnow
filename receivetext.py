@@ -6,9 +6,15 @@ from twilio import twiml
 import sys
 sys.path.append('functions')
 from getweather import GetWeather
+from getstocks import GetStock
+from setalarm import SetAlarm
+from getShowInfo import GetShowInfo
 import json
 
 weatherReport = GetWeather()
+stockReport = GetStock()
+setAlarm = SetAlarm()
+showInfo = GetShowInfo()
 class ReceiveText(webapp2.RequestHandler):
    def post(self):
       fromNumber = cgi.escape(self.request.get('From'))
@@ -28,6 +34,12 @@ class ReceiveText(webapp2.RequestHandler):
          json_result = weatherReport.getweather(json_object_result)
       elif method_name == "get_weather_forecast":
          json_result = weatherReport.getforecast(json_object_result)
+      elif method_name == "get_stocks":
+         json_result = stockReport.getstock(json_object_result)
+      elif method_name == "set_alarm":
+         json_result = setAlarm.setalarm(fromNumber,json_object_result)
+      elif method_name == "get_shows":
+         json_result = showInfo.getShowsToday(json_object_result)
 #      else:
 #         #do nothing
 

@@ -17,8 +17,12 @@
 import webapp2
 from index import *
 from receivetext import *
+import os
+sys.path.append('functions')
+from setalarm import *
 
 app = webapp2.WSGIApplication([
     ('/', IndexPage),
-    ('/receivetext', ReceiveText)
+    ('/receivetext', ReceiveText),
+    ('/runalarm',RunAlarm)
 ], debug=True)
