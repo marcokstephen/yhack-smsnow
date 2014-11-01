@@ -5,15 +5,18 @@ from twilio.rest import TwilioRestClient
 import webapp2
 from google.appengine.api import taskqueue
 import cgi
+import dateutil.parser
+import datetime
 
 class SetAlarm():
    @staticmethod
    def setalarm(from_number, json_string):
       time = json_string['outcomes'][0]['entities']['datetime'][0]['value']
+      alarmTime = dateutil.parser.parse(time)
 
-      taskqueue.add(url="/runalarm", countdown=30, params={'number': from_number})
+      taskqueue.add(url="/runalarm", eta=alarmTime, params={'number': from_number})
 
-      return from_number
+      return "Alarm set for %d:%d, %d/%d"%(alarmTime.hour,alarmTime.minute,alarmTime.month,alarmTime.day)
 
 class RunAlarm(webapp2.RequestHandler):
    def post(self):
