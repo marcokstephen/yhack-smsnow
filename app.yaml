@@ -13,6 +13,16 @@ handlers:
   static_files: alarmcall.xml
   upload: alarmcall\.xml
 
+- url: /pictures
+  static_dir: pictures
+
+- url: /MarketingIntro_files
+  static_dir: bootstrap_files 
+
+- url: /index.html
+  static_files: index.html
+  upload: index\.html
+
 - url: .*
   script: yalesms.app
 
