@@ -15,7 +15,7 @@ from gettranslate import GetTranslate
 from getdirection import GetDirection
 from findnearby import FindNearby
 from getPrices import GetProductData
-
+from findhotel import FindHotel
 import json
 
 weatherReport = GetWeather()
@@ -29,6 +29,7 @@ getDirection = GetDirection()
 findNearby = FindNearby()
 getProductData = GetProductData()
 
+findHotel = FindHotel()
 class ReceiveText(webapp2.RequestHandler):
    def post(self):
       fromNumber = cgi.escape(self.request.get('From'))
@@ -70,8 +71,9 @@ class ReceiveText(webapp2.RequestHandler):
          json_result = getProductData.getInfo(getProductData, json_object_result)
       elif method_name == "get_price":
          json_result = getProductData.getPrice(getProductData, json_object_result)
-   
-      print json_result
+      elif method_name == "find_hotel":
+         json_result = findHotel.findhotel(json_object_result)
+         
       r = twiml.Response()
       try:
          r.message(json_result)
