@@ -62,7 +62,7 @@ class GetShowInfo():
 
       #print "EPISODES TODAY"
       #print episodesToday
-      return episodesToday
+      return str(episodesToday)
 
    @staticmethod
    def findEpisodesList(date, json_episodes_object):
@@ -89,7 +89,7 @@ class GetShowInfo():
          #print json_episodes_details_object['response']['Episodes']
          try:
             #print str(json_episodes_details_object['response']['Episodes'][0]['Title'])+": "+str(json_episodes_details_object['response']['Episodes'][0]['EpisodeNumber'])
-            return str(json_episodes_details_object['response']['Episodes'][0]['Title'])+": "+str(json_episodes_details_object['response']['Episodes'][0]['EpisodeNumber'])
+            return str(json_episodes_details_object['response']['Episodes'][0]['Title'])+": Episode "+str(json_episodes_details_object['response']['Episodes'][0]['EpisodeNumber'])
          except:
             #print"Exception Hit"
             return ""
