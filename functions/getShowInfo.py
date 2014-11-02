@@ -89,7 +89,7 @@ class GetShowInfo():
          #print json_episodes_details_object['response']['Episodes']
          try:
             #print str(json_episodes_details_object['response']['Episodes'][0]['Title'])+": "+str(json_episodes_details_object['response']['Episodes'][0]['EpisodeNumber'])
-            return str(json_episodes_details_object['response']['Episodes'][0]['Title'])+": "+str(json_episodes_details_object['response']['Episodes'][0]['EpisodeNumber'])
+            return str(json_episodes_details_object['response']['Episodes'][0]['Title'])+": Episode "+str(json_episodes_details_object['response']['Episodes'][0]['EpisodeNumber'])
          except:
             #print"Exception Hit"
             return ""
