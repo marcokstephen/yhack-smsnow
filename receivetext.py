@@ -67,13 +67,13 @@ class ReceiveText(webapp2.RequestHandler):
          json_result = getDirection.getdirection(json_object_result)
       elif method_name == "find_nearby":
          json_result = findNearby.findnearby(json_object_result)
-      elif method_name == "get_product_info":
-         json_result = getProductData.getInfo(getProductData, json_object_result)
+      elif method_name == "get_product_purchase_location":
+         json_result = getProductData.getPurchaseLocation(getProductData, json_object_result)
       elif method_name == "get_price":
          json_result = getProductData.getPrice(getProductData, json_object_result)
       elif method_name == "find_hotel":
          json_result = findHotel.findhotel(json_object_result)
-         
+
       r = twiml.Response()
       try:
          r.message(json_result)
