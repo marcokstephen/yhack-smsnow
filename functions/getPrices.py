@@ -56,7 +56,7 @@ class GetProductData():
       searchQuery = self.getSearchQuery(self, json_string)
       sem_url= "https://api.semantics3.com/test/v1/products?q={\"search\":\"%s\"}" %urllib.quote(searchQuery)
       request = urllib2.Request(sem_url)
-      request.add_header("api_key", "SEM369667FA6AFAB6FBE6D2DF989D51141F6")
+      request.add_header("api_key", "SEM385EA1ADB7332CFA1FDBD64CD1A921D78")
       result = urllib2.urlopen(request)
       json_result = result.read()
       json_result_object = json.loads(json_result)
