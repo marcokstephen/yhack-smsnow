@@ -62,7 +62,7 @@ class GetShowInfo():
 
       #print "EPISODES TODAY"
       #print episodesToday
-      return episodesToday
+      return str(episodesToday)
 
    @staticmethod
    def findEpisodesList(date, json_episodes_object):
