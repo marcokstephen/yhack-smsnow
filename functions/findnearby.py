@@ -1,13 +1,13 @@
 import urllib
 import urllib2
 import json
+from APIKeys import GoogleApiKey
 
 class FindNearby():
    @staticmethod
    def findnearby(json_string):
       location = json_string['outcomes'][0]['entities']['location'][0]['value']
       location = urllib.quote(location)
-      key = "AIzaSyCH7BZIQ7JP-m02hvzPVa9a8wVGfamAvEI"
       
       #Finding the latitude and longitude with geocode api
       geocode_api = "http://maps.googleapis.com/maps/api/geocode/json?address="+location
@@ -23,7 +23,7 @@ class FindNearby():
       str_lng = str(lng)
 
       #using the lat and lng with the places api to find nearby attractions
-      places_api = "https://maps.googleapis.com/maps/api/place/radarsearch/json?location="+str_lat+","+str_lng+"&radius=3000&types=movie_theater|restaurant|shopping_mall&key="+key
+      places_api = "https://maps.googleapis.com/maps/api/place/radarsearch/json?location="+str_lat+","+str_lng+"&radius=3000&types=movie_theater|restaurant|shopping_mall&key="+GoogleApiKey
       request = urllib2.Request(places_api)
       result = urllib2.urlopen(request)
       json_result = result.read()
@@ -39,7 +39,7 @@ class FindNearby():
       #using the places api to find more detailed information on the place 
       outputString = ""
       for x in range(0,len(idList)):
-        details_api = "https://maps.googleapis.com/maps/api/place/details/json?placeid="+idList[x]+"&key="+key
+        details_api = "https://maps.googleapis.com/maps/api/place/details/json?placeid="+idList[x]+"&key="+GoogleApiKey
         place_request = urllib2.Request(details_api)
         place_result = urllib2.urlopen(place_request)
         place_json = place_result.read()

@@ -7,6 +7,7 @@ from google.appengine.api import taskqueue
 import cgi
 import dateutil.parser
 import datetime
+from APIKeys import account_sid, auth_token, twilio_number
 
 class SetAlarm():
    @staticmethod
@@ -21,8 +22,6 @@ class SetAlarm():
 class RunAlarm(webapp2.RequestHandler):
    def post(self):
       from_number = cgi.escape(self.request.get('number'))
-      account_sid = "ACcdd722da9eb23c0be222908001c05621"
-      auth_token = "f42dc3d4155e275b7e6534a08d1c12fc"
       client = TwilioRestClient(account_sid, auth_token)
-      call = client.calls.create(to="%s"%from_number,from_="+12892784272",url="http://yhack-sms.appspot.com/alarmcall")
+      call = client.calls.create(to="%s"%from_number,from_=twilio_number,url="http://yhack-sms.appspot.com/alarmcall")
       self.response.write("Alarm is running") 

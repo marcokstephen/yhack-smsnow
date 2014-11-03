@@ -1,6 +1,7 @@
 import json
 import urllib2
 import urllib
+from APIKeys import GoogleApiKey
 
 class GetTranslate():
    @staticmethod
@@ -38,7 +39,7 @@ class GetTranslate():
          locale = "en"
 
       phrase = urllib.quote(phrase)
-      api_url = "https://www.googleapis.com/language/translate/v2?key=AIzaSyCH7BZIQ7JP-m02hvzPVa9a8wVGfamAvEI&target="+locale+"&q="+phrase
+      api_url = "https://www.googleapis.com/language/translate/v2?key="+GoogleApiKey+"&target="+locale+"&q="+phrase
 
       request = urllib2.Request(api_url)
       response = urllib2.urlopen(request)
