@@ -15,7 +15,6 @@
 # limitations under the License.
 #
 import webapp2
-from index import *
 from receivetext import *
 import os
 sys.path.append('functions')
@@ -23,7 +22,6 @@ from setalarm import *
 from setreminder import *
 
 app = webapp2.WSGIApplication([
-    ('/', IndexPage),
     ('/receivetext', ReceiveText),
     ('/runalarm',RunAlarm),
     ('/runreminder',RunReminder)
